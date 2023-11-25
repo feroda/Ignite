@@ -1,39 +1,39 @@
 name: ignite
 description: Tocca il futuro concretamente oggi e aiuta un intera comunità con un gesto che può fare la differenza.
-version: 1.0.0+3
+version: 1.1.0
 
 environment:
-  sdk: ">=2.2.2 <3.0.0"
+  sdk: ">=2.12.0 <3.2.0"
 
 dependencies:
   flutter:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  cupertino_icons: ^0.1.2
-  google_maps_flutter: ^0.5.21+8
-  flutter_login: ^1.0.4
-  geolocator: ^5.1.4+2
-  curved_navigation_bar: ^0.3.1
-  firebase_auth: ^0.14.0+9
-  firebase_database: ^3.1.0
-  expandable: ^3.0.1
-  introduction_screen: ^1.0.7
-  flutter_svg: ^0.14.4
-  theme_provider: ^0.3.1
-  cloud_firestore: ^0.12.10
-  font_awesome_flutter: ^8.5.0
-  http: ^0.12.0+2
-  google_sign_in: ^4.0.14
-  flutter_facebook_login: ^3.0.0
+  cupertino_icons: any
+  google_maps_flutter: any
+  flutter_login: any
+  geolocator: any
+  curved_navigation_bar: any
+  firebase_auth: any
+  firebase_database: any
+  expandable: any
+  introduction_screen: any
+  flutter_svg: any
+  theme_provider: any
+  cloud_firestore: any
+  font_awesome_flutter: any
+  http: any
+  google_sign_in: any
+  flutter_facebook_auth: any
   simple_gravatar: ^1.0.5
-  auto_size_text: ^2.1.0
-  pk_skeleton: ^0.0.2
-  sliding_up_panel: ^0.3.6
-  datetime_picker_formfield: ^1.0.0-pre.5
-  url_launcher: ^5.4.1
-  flushbar: ^1.9.1
-  flare_flutter: ^2.0.1
+  auto_size_text: any
+  pk_skeleton_null_safe: any
+  sliding_up_panel: any
+  datetime_picker_formfield: any
+  url_launcher: any
+  flutter_flushbar: any
+  flare_flutter: any
   # quick_actions: ^0.4.0+1
 
 dev_dependencies:
