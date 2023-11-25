@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:convert';
@@ -13,8 +12,8 @@ class FAQ {
   String answer;
 
   FAQ({
-    @required this.question,
-    @required this.answer,
+    required this.question,
+    required this.answer,
   });
 
   factory FAQ.fromJson(Map<String, dynamic> parsedJson) {
@@ -27,7 +26,7 @@ class FAQ {
 
 class FaqScreen extends StatefulWidget {
   final String jsonPath;
-  FaqScreen({@required this.jsonPath});
+  FaqScreen({required this.jsonPath});
 
   @override
   _FaqScreenState createState() => _FaqScreenState();
@@ -69,7 +68,7 @@ class _FaqScreenState extends State<FaqScreen> {
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
                   return new FAQPanel(
-                    listFaqs: snapshot.data,
+                    listFaqs: snapshot.data!,
                   );
                 } else if (snapshot.hasError) {
                   return new Container(

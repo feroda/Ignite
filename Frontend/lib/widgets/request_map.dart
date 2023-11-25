@@ -15,9 +15,9 @@ class RequestMap extends StatefulWidget {
   final bool isHydrant;
 
   RequestMap({
-    @required this.latitude,
-    @required this.longitude,
-    @required this.isHydrant,
+    required this.latitude,
+    required this.longitude,
+    required this.isHydrant,
   });
 
   @override

@@ -9,11 +9,11 @@ class RequestFormDropDownListTile extends StatefulWidget {
   Icon icon;
   String _value;
   RequestFormDropDownListTile({
-    @required this.label,
-    @required this.values,
-    @required this.onChangedFunction,
-    @required this.icon,
-    @required this.hintText,
+    required this.label,
+    required this.values,
+    required this.onChangedFunction,
+    required this.icon,
+    required this.hintText,
   });
   @override
   _RequestFormDropDownListTileState createState() =>
@@ -137,9 +137,9 @@ class RequestFormDropDownButton extends StatefulWidget {
   Function onChangedFunction;
   Icon icon;
   RequestFormDropDownButton(
-      {@required this.values,
-      @required this.onChangedFunction,
-      @required this.icon});
+      {required this.values,
+      required this.onChangedFunction,
+      required this.icon});
   @override
   _RequestFormDropDownButtonState createState() =>
       _RequestFormDropDownButtonState();

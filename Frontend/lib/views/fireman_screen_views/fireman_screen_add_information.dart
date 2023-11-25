@@ -12,8 +12,8 @@ class FiremanAddInformation extends StatefulWidget {
   final Hydrant hydrant;
   final Request request;
   FiremanAddInformation({
-    @required this.hydrant,
-    @required this.request,
+    required this.hydrant,
+    required this.request,
   });
 
   @override

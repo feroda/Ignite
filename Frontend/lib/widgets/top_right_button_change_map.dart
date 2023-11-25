@@ -7,7 +7,7 @@ import 'homepage_button.dart';
 class TopButtonRightMapChangeView extends StatefulWidget {
   final Function changeMapFunction;
   TopButtonRightMapChangeView({
-    @required this.changeMapFunction,
+    required this.changeMapFunction,
   });
   @override
   _TopButtonRightMapChangeViewState createState() =>

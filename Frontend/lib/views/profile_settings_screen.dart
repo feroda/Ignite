@@ -19,7 +19,7 @@ import 'login_screen.dart';
 class ProfileSettingsScreen extends StatefulWidget {
   final String jsonFaq;
   ProfileSettingsScreen({
-    @required this.jsonFaq,
+    required this.jsonFaq,
   });
 
   @override

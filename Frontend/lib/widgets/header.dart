@@ -9,8 +9,8 @@ class Header extends StatelessWidget {
   final String heroTag;
 
   Header({
-    @required this.title,
-    @required this.subtitle,
+    required this.title,
+    required this.subtitle,
     this.icon,
     this.heroTag,
   });

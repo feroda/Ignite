@@ -8,10 +8,10 @@ import 'listtile_builder_info.dart';
 
 class CustomDialog extends StatefulWidget {
   CustomDialog({
-    @required this.searchFunction,
-    @required this.attacksList,
-    @required this.vehiclesList,
-    @required this.openingsList,
+    required this.searchFunction,
+    required this.attacksList,
+    required this.vehiclesList,
+    required this.openingsList,
   });
 
   final Function searchFunction;

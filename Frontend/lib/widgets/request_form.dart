@@ -43,9 +43,9 @@ class RequestForm extends StatefulWidget {
 
   List<String> _pressureValues;
   RequestForm({
-    @required this.lat,
-    @required this.long,
-    @required this.isNewRequest,
+    required this.lat,
+    required this.long,
+    required this.isNewRequest,
     this.oldRequest,
     this.oldHydrant,
   });

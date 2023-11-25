@@ -15,8 +15,8 @@ class DepartmentScreen extends StatelessWidget {
   final Widget buttonBar;
 
   DepartmentScreen({
-    @required this.department,
-    @required this.buttonBar,
+    required this.department,
+    required this.buttonBar,
   });
 
   @override

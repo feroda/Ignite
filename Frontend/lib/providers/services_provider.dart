@@ -8,7 +8,7 @@ import '../services/users_services.dart';
 import '../services/values_services.dart';
 
 class ServicesProvider extends ChangeNotifier {
-  ServicesFactory _factory;
+  late ServicesFactory _factory;
 
   static final ServicesProvider _singleton = ServicesProvider._internal();
 

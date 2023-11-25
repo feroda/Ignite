@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:typed_data';
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -76,7 +75,7 @@ class _CitizenScreenMapState extends State<CitizenScreenMap> {
       this._getPosition(),
     ]);
     this.setupPositionStream();
-    _approvedHydrants = List<Hydrant>();
+    _approvedHydrants = List<Hydrant>.empty();
   }
 
   Future<Uint8List> getBytesFromAsset(String path, int width) async {

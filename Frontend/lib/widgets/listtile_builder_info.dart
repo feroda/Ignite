@@ -9,11 +9,11 @@ class BuildSectionFilter extends StatefulWidget {
   final Icon icon;
   final Function value;
   BuildSectionFilter({
-    @required this.listValue,
-    @required this.nameSection,
-    @required this.descValue,
-    @required this.icon,
-    @required this.value,
+    required this.listValue,
+    required this.nameSection,
+    required this.descValue,
+    required this.icon,
+    required this.value,
   });
 
   @override

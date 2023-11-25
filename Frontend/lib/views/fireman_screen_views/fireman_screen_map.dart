@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:typed_data';
 
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
@@ -34,17 +33,17 @@ class FiremanScreenMap extends StatefulWidget {
 }
 
 class _FiremanScreenMapState extends State<FiremanScreenMap> {
-  StreamSubscription<Position> _positionStream;
-  GoogleMapController _mapController;
-  LatLng _curloc;
-  String _mapStyle;
-  List<Marker> _markerSet;
-  List<Hydrant> _approvedHydrants;
-  List<Department> _departments;
-  List<String> _attackValues;
-  List<String> _vehicleValues;
-  List<String> _openingValues;
-  MapType mapType;
+  late StreamSubscription<Position> _positionStream;
+  late GoogleMapController _mapController;
+  late LatLng _curloc;
+  late String _mapStyle;
+  late List<Marker> _markerSet;
+  late List<Hydrant> _approvedHydrants;
+  late List<Department> _departments;
+  late List<String> _attackValues;
+  late List<String> _vehicleValues;
+  late List<String> _openingValues;
+  late MapType mapType;
 
   void setupPositionStream() {
     _positionStream = Geolocator()

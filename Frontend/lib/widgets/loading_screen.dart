@@ -8,9 +8,9 @@ class LoadingScreen extends StatelessWidget {
   final String pathFlare;
   final String nameAnimation;
   LoadingScreen({
-    @required this.message,
-    @required this.pathFlare,
-    @required this.nameAnimation,
+    required this.message,
+    required this.pathFlare,
+    required this.nameAnimation,
   });
   @override
   Widget build(BuildContext context) {

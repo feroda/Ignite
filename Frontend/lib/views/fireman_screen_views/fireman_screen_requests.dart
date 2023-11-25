@@ -24,8 +24,8 @@ class FiremanScreenRequests extends StatefulWidget {
 }
 
 class _FiremanScreenRequestsState extends State<FiremanScreenRequests> {
-  List<Request> _requests;
-  LatLng _curloc;
+  late List<Request> _requests;
+  late LatLng _curloc;
 
   Future<void> _getPosition() async {
     Position position = await Geolocator()
@@ -52,14 +52,14 @@ class _FiremanScreenRequestsState extends State<FiremanScreenRequests> {
       body: CustomPaint(
         painter: Painter(
           first: ThemeProvider.themeOf(context).id == "main"
-              ? Colors.red[900]
-              : Colors.grey[850],
+              ? Colors.red[900]!
+              : Colors.grey[850]!,
           second: ThemeProvider.themeOf(context).id == "main"
-              ? Colors.red[400]
-              : Colors.grey[900],
+              ? Colors.red[400]!
+              : Colors.grey[900]!
           background: ThemeProvider.themeOf(context).id == "main"
               ? Colors.white
-              : Colors.grey[700],
+              : Colors.grey[700]!,
         ),
         child: FutureBuilder(
           future: initFuture(),
@@ -164,7 +164,6 @@ class _FiremanScreenRequestsState extends State<FiremanScreenRequests> {
                   );
                 }
             }
-            return null;
           },
         ),
       ),
@@ -194,7 +193,7 @@ class RequestCard extends StatefulWidget {
   final Request request;
 
   RequestCard({
-    @required this.request,
+    required this.request,
   });
 
   @override

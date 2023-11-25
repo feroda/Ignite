@@ -6,8 +6,8 @@ class RowMarkerDetails extends StatelessWidget {
   final String tag;
 
   RowMarkerDetails({
-    @required this.value,
-    @required this.tag,
+    required this.value,
+    required this.tag,
   });
 
   @override

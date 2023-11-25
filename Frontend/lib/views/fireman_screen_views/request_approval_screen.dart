@@ -18,16 +18,16 @@ import 'fireman_screen_add_information.dart';
 class RequestApprovalScreen extends StatefulWidget {
   final Request request;
   RequestApprovalScreen({
-    @required this.request,
+    required this.request,
   });
   @override
   _RequestApprovalScreenState createState() => _RequestApprovalScreenState();
 }
 
 class _RequestApprovalScreenState extends State<RequestApprovalScreen> {
-  Hydrant _hydrant;
-  String _userMail;
-  User _user;
+  late Hydrant _hydrant;
+  late String _userMail;
+  late User _user;
 
   Future initFuture() async {
     await Future.wait([_getUserMail()]);
@@ -74,7 +74,6 @@ class _RequestApprovalScreenState extends State<RequestApprovalScreen> {
                   ),
                 );
             }
-            return null;
           },
         ),
       ),
@@ -88,9 +87,9 @@ class RequestScreenRecap extends StatelessWidget {
   final bool isHydrant;
 
   RequestScreenRecap({
-    this.hydrant,
-    this.buttonBar,
-    this.isHydrant,
+    required this.hydrant,
+    required this.buttonBar,
+    this.isHydrant = false,
   });
 
   @override
@@ -313,9 +312,9 @@ class ButtonAppBarDeclineConfirm extends StatelessWidget {
   final Hydrant hydrant;
   final User user;
   ButtonAppBarDeclineConfirm({
-    @required this.request,
-    @required this.user,
-    @required this.hydrant,
+    required this.request,
+    required this.user,
+    required this.hydrant,
   });
 
   @override
@@ -333,7 +332,7 @@ class ButtonAppBarDeclineConfirm extends StatelessWidget {
             await AuthProvider().getUser();
             ServicesProvider()
                 .getRequestsServices()
-                .denyRequest(this.request.getId(), this.user.getId())
+                .denyRequest(this.request.getId()!, this.user.getId())
                 .then((status) {
               if (status) {
                 new TopFlushbar(

@@ -9,11 +9,11 @@ class SocialChip extends StatelessWidget {
   final double opacity;
 
   SocialChip({
-    @required this.label,
-    @required this.icon,
-    @required this.function,
-    @required this.width,
-    @required this.opacity,
+    required this.label,
+    required this.icon,
+    required this.function,
+    required this.width,
+    required this.opacity,
   });
 
   @override

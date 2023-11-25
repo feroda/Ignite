@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/services.dart';
+import 'package:ignite/design/colors.dart';
 import 'package:theme_provider/theme_provider.dart';
 
 import '../../main.dart';
@@ -14,7 +15,7 @@ class CitizenScreen extends StatefulWidget {
 }
 
 class _CitizenScreenState extends State<CitizenScreen> {
-  Widget _bodyWidget;
+  late Widget _bodyWidget;
 
   @override
   void initState() {
@@ -82,34 +83,33 @@ class _CitizenScreenState extends State<CitizenScreen> {
 }
 
 class CitizenCurvedNavigationBar extends StatelessWidget {
-  CitizenCurvedNavigationBar({@required this.indexFun});
-  Function indexFun;
+  CitizenCurvedNavigationBar({required this.indexFun});
+  final Function(int)? indexFun;
   @override
   Widget build(BuildContext context) {
     return CurvedNavigationBar(
       backgroundColor: Colors.transparent,
       index: 0,
-      color: ThemeProvider.themeOf(context).data.bottomAppBarColor,
+      color: bottomAppBarColor,
       animationDuration: Duration(
         milliseconds: 500,
       ),
-      buttonBackgroundColor:
-          ThemeProvider.themeOf(context).data.bottomAppBarColor,
+      buttonBackgroundColor: bottomAppBarColor,
       items: <Icon>[
         Icon(
           Icons.map,
           size: 35,
-          color: ThemeProvider.themeOf(context).data.buttonColor,
+          color: buttonColor,
         ),
         Icon(
           Icons.add,
           size: 35,
-          color: ThemeProvider.themeOf(context).data.buttonColor,
+          color: buttonColor,
         ),
         Icon(
           Icons.person,
           size: 35,
-          color: ThemeProvider.themeOf(context).data.buttonColor,
+          color: buttonColor,
         ),
       ],
       onTap: indexFun,

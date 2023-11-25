@@ -8,10 +8,10 @@ class SettingsButton extends StatelessWidget {
   final Icon icon;
 
   SettingsButton({
-    @required this.title,
-    @required this.subtitlte,
-    @required this.onTap,
-    @required this.icon,
+    required this.title,
+    required this.subtitlte,
+    required this.onTap,
+    required this.icon,
   });
 
   @override

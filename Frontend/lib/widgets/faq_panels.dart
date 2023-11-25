@@ -8,7 +8,7 @@ class FAQPanel extends StatelessWidget {
   final List<FAQ> listFaqs;
 
   FAQPanel({
-    @required this.listFaqs,
+    required this.listFaqs,
   });
 
   @override

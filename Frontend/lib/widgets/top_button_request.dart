@@ -4,11 +4,11 @@ import 'package:theme_provider/theme_provider.dart';
 class TopButtonRequest extends StatelessWidget {
   TopButtonRequest({
     Key key,
-    @required this.context,
-    @required this.title,
-    @required this.subtitle,
-    @required this.function,
-    @required this.icon,
+    required this.context,
+    required this.title,
+    required this.subtitle,
+    required this.function,
+    required this.icon,
   }) : super(key: key);
 
   final BuildContext context;

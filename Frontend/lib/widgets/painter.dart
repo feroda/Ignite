@@ -6,9 +6,9 @@ class Painter extends CustomPainter {
   final Color background;
 
   Painter({
-    @required this.first,
-    @required this.second,
-    @required this.background,
+    required this.first,
+    required this.second,
+    required this.background,
   });
 
   @override

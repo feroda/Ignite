@@ -11,13 +11,13 @@ class RequestFormTextListTile extends StatefulWidget {
   TextInputType textInputType;
 
   RequestFormTextListTile(
-      {@required this.label,
-      @required this.hintText,
-      @required this.initValue,
-      @required this.icon,
-      @required this.validator,
-      @required this.onSaved,
-      @required this.textInputType});
+      {required this.label,
+      required this.hintText,
+      required this.initValue,
+      required this.icon,
+      required this.validator,
+      required this.onSaved,
+      required this.textInputType});
   @override
   _RequestFormTextListTileState createState() =>
       _RequestFormTextListTileState();

@@ -7,9 +7,9 @@ class HomePageButton extends StatelessWidget {
   final String heroTag;
 
   HomePageButton({
-    @required this.function,
-    @required this.icon,
-    @required this.heroTag,
+    required this.function,
+    required this.icon,
+    required this.heroTag,
   });
 
   @override

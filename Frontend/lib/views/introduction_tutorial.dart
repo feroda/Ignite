@@ -9,7 +9,7 @@ import 'citizen_screen_views/citizen_screen.dart';
 import 'fireman_screen_views/fireman_screen.dart';
 
 class IntroductionTutorial extends StatelessWidget {
-  IntroductionTutorial({@required this.isFireman});
+  IntroductionTutorial({required this.isFireman});
 
   final bool isFireman;
 

@@ -6,10 +6,10 @@ class ButtonDeclineConfirm extends StatelessWidget {
   final Function onPressed;
   final Color color;
   ButtonDeclineConfirm({
-    @required this.text,
-    @required this.icon,
-    @required this.onPressed,
-    @required this.color,
+    required this.text,
+    required this.icon,
+    required this.onPressed,
+    required this.color,
   });
   @override
   Widget build(BuildContext context) {
