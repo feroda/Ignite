@@ -7,8 +7,8 @@ import 'dart:async';
 import 'package:ignite/models/hydrant.dart';
 
 class HydrantsApiController {
-  String _ip;
-  String _baseUrl;
+  late String _ip;
+  late String _baseUrl;
   HydrantsApiController(String ip) {
     _ip = ip;
     _baseUrl = "http://$_ip:8080/ignite/api/hydrant";
@@ -18,7 +18,7 @@ class HydrantsApiController {
   Future<String> getApprovedHydrants() async {
     Map<String, String> header = await BasicAuthConfig().getUserHeader();
     http.Response res = await http.get(
-      "$_baseUrl/approved",
+      Uri.parse("$_baseUrl/approved"),
       headers: header,
     );
     return res.body;
@@ -28,7 +28,7 @@ class HydrantsApiController {
   Future<String> getHydrantById(String id) async {
     Map<String, String> header = await BasicAuthConfig().getUserHeader();
     http.Response res = await http.get(
-      "$_baseUrl/id/$id",
+      Uri.parse("$_baseUrl/id/$id"),
       headers: header,
     );
     return res.body;
@@ -37,29 +37,30 @@ class HydrantsApiController {
 //Hydrant - body = "" -> null
   Future<String> addHydrant(Hydrant newHydrant) async {
     Map<String, String> header = await BasicAuthConfig().getUserHeader();
-    http.Response res = await http.post(Uri.encodeFull("$_baseUrl/new"),
-        body: json.encode({
-          "attacks": [
-            newHydrant.getFirstAttack(),
-            newHydrant.getSecondAttack()
-          ],
-          "bar": newHydrant.getPressure(),
-          "cap": newHydrant.getCap(),
-          "city": newHydrant.getCity(),
-          "color": newHydrant.getColor(),
-          "geopoint": {
-            "latitude": newHydrant.getLat(),
-            "longitude": newHydrant.getLong()
-          },
-          "lastCheck": newHydrant.getLastCheck(),
-          "notes": newHydrant.getNotes(),
-          "streetNumber": newHydrant.getNumber(),
-          "opening": newHydrant.getOpening(),
-          "streetName": newHydrant.getStreet(),
-          "type": newHydrant.getType(),
-          "vehicle": newHydrant.getVehicle(),
-        }),
-        headers: header);
+    http.Response res =
+        await http.post(Uri.parse(Uri.encodeFull("$_baseUrl/new")),
+            body: json.encode({
+              "attacks": [
+                newHydrant.getFirstAttack(),
+                newHydrant.getSecondAttack()
+              ],
+              "bar": newHydrant.getPressure(),
+              "cap": newHydrant.getCap(),
+              "city": newHydrant.getCity(),
+              "color": newHydrant.getColor(),
+              "geopoint": {
+                "latitude": newHydrant.getLat(),
+                "longitude": newHydrant.getLong()
+              },
+              "lastCheck": newHydrant.getLastCheck(),
+              "notes": newHydrant.getNotes(),
+              "streetNumber": newHydrant.getNumber(),
+              "opening": newHydrant.getOpening(),
+              "streetName": newHydrant.getStreet(),
+              "type": newHydrant.getType(),
+              "vehicle": newHydrant.getVehicle(),
+            }),
+            headers: header);
     return res.body;
   }
 
@@ -67,7 +68,7 @@ class HydrantsApiController {
   Future<String> deleteHydrant(String id) async {
     Map<String, String> header = await BasicAuthConfig().getUserHeader();
     http.Response res = await http.delete(
-      "$_baseUrl/delete/$id",
+      Uri.parse("$_baseUrl/delete/$id"),
       headers: header,
     );
     return res.body;
@@ -76,29 +77,30 @@ class HydrantsApiController {
 //Hydrant - body = "" -> null
   Future<String> updateHydrant(Hydrant updatedHydrant) async {
     Map<String, String> header = await BasicAuthConfig().getUserHeader();
-    http.Response res = await http.post(Uri.encodeFull("$_baseUrl/update"),
-        body: json.encode({
-          "attacks": [
-            updatedHydrant.getFirstAttack(),
-            updatedHydrant.getSecondAttack()
-          ],
-          "bar": updatedHydrant.getPressure(),
-          "cap": updatedHydrant.getCap(),
-          "city": updatedHydrant.getCity(),
-          "color": updatedHydrant.getColor(),
-          "geopoint": {
-            "latitude": updatedHydrant.getLat(),
-            "longitude": updatedHydrant.getLong()
-          },
-          "lastCheck": updatedHydrant.getLastCheck(),
-          "notes": updatedHydrant.getNotes(),
-          "streetNumber": updatedHydrant.getNumber(),
-          "opening": updatedHydrant.getOpening(),
-          "streetName": updatedHydrant.getStreet(),
-          "type": updatedHydrant.getType(),
-          "vehicle": updatedHydrant.getVehicle(),
-        }),
-        headers: header);
+    http.Response res =
+        await http.post(Uri.parse(Uri.encodeFull("$_baseUrl/update")),
+            body: json.encode({
+              "attacks": [
+                updatedHydrant.getFirstAttack(),
+                updatedHydrant.getSecondAttack()
+              ],
+              "bar": updatedHydrant.getPressure(),
+              "cap": updatedHydrant.getCap(),
+              "city": updatedHydrant.getCity(),
+              "color": updatedHydrant.getColor(),
+              "geopoint": {
+                "latitude": updatedHydrant.getLat(),
+                "longitude": updatedHydrant.getLong()
+              },
+              "lastCheck": updatedHydrant.getLastCheck(),
+              "notes": updatedHydrant.getNotes(),
+              "streetNumber": updatedHydrant.getNumber(),
+              "opening": updatedHydrant.getOpening(),
+              "streetName": updatedHydrant.getStreet(),
+              "type": updatedHydrant.getType(),
+              "vehicle": updatedHydrant.getVehicle(),
+            }),
+            headers: header);
     return res.body;
   }
 }

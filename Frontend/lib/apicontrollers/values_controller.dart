@@ -4,8 +4,8 @@ import 'dart:async';
 import 'package:ignite/apicontrollers/basic_auth_config.dart';
 
 class ValuesApiController {
-  String _ip;
-  String _baseUrl;
+  late String _ip;
+  late String _baseUrl;
 
   ValuesApiController(String ip) {
     _ip = ip;
@@ -15,7 +15,7 @@ class ValuesApiController {
   Future<String> getAttacks() async {
     Map<String, String> header = await BasicAuthConfig().getUserHeader();
     http.Response res = await http.get(
-      "$_baseUrl/attacks",
+      Uri.parse("$_baseUrl/attacks"),
       headers: header,
     );
     return res.body;
@@ -24,7 +24,7 @@ class ValuesApiController {
   Future<String> getColors() async {
     Map<String, String> header = await BasicAuthConfig().getUserHeader();
     http.Response res = await http.get(
-      "$_baseUrl/colors",
+      Uri.parse("$_baseUrl/colors"),
       headers: header,
     );
     return res.body;
@@ -33,7 +33,7 @@ class ValuesApiController {
   Future<String> getOpenings() async {
     Map<String, String> header = await BasicAuthConfig().getUserHeader();
     http.Response res = await http.get(
-      "$_baseUrl/openings",
+      Uri.parse("$_baseUrl/openings"),
       headers: header,
     );
     return res.body;
@@ -42,7 +42,7 @@ class ValuesApiController {
   Future<String> getPressures() async {
     Map<String, String> header = await BasicAuthConfig().getUserHeader();
     http.Response res = await http.get(
-      "$_baseUrl/pressures",
+      Uri.parse("$_baseUrl/pressures"),
       headers: header,
     );
     return res.body;
@@ -51,7 +51,7 @@ class ValuesApiController {
   Future<String> getTypes() async {
     Map<String, String> header = await BasicAuthConfig().getUserHeader();
     http.Response res = await http.get(
-      "$_baseUrl/types",
+      Uri.parse("$_baseUrl/types"),
       headers: header,
     );
     return res.body;
@@ -60,7 +60,7 @@ class ValuesApiController {
   Future<String> getVehicles() async {
     Map<String, String> header = await BasicAuthConfig().getUserHeader();
     http.Response res = await http.get(
-      "$_baseUrl/vehicles",
+      Uri.parse("$_baseUrl/vehicles"),
       headers: header,
     );
     return res.body;

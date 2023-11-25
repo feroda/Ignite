@@ -5,8 +5,8 @@ import 'dart:async';
 import 'dart:convert';
 
 class UsersApiController {
-  String _ip;
-  String _baseUrl;
+  late String _ip;
+  late String _baseUrl;
   UsersApiController(String ip) {
     _ip = ip;
     _baseUrl = "http://$_ip:8080/ignite/api/user";
@@ -16,7 +16,7 @@ class UsersApiController {
   Future<String> getUserById(String id) async {
     Map<String, String> header = await BasicAuthConfig().getUserHeader();
     http.Response res = await http.get(
-      "$_baseUrl/id/$id",
+      Uri.parse("$_baseUrl/id/$id"),
       headers: header,
     );
     return res.body;
@@ -26,7 +26,7 @@ class UsersApiController {
   Future<String> getUserByMail(String mail) async {
     Map<String, String> header = await BasicAuthConfig().getUserHeader();
     http.Response res = await http.get(
-      "$_baseUrl/mail/$mail",
+      Uri.parse("$_baseUrl/mail/$mail"),
       headers: header,
     );
     return res.body;
@@ -36,7 +36,7 @@ class UsersApiController {
   Future<String> isUserFiremanById(String id) async {
     Map<String, String> header = await BasicAuthConfig().getUserHeader();
     http.Response res = await http.get(
-      "$_baseUrl/isFireman/$id",
+      Uri.parse("$_baseUrl/isFireman/$id"),
       headers: header,
     );
     return res.body;
@@ -46,7 +46,7 @@ class UsersApiController {
   Future<String> isUserFirstAccessById(String id) async {
     Map<String, String> header = await BasicAuthConfig().getUserHeader();
     http.Response res = await http.get(
-      "$_baseUrl/isFirstAccess/$id",
+      Uri.parse("$_baseUrl/isFirstAccess/$id"),
       headers: header,
     );
     return res.body;
@@ -56,7 +56,7 @@ class UsersApiController {
   Future<String> setFirstAccessToFalseById(String id) async {
     Map<String, String> header = await BasicAuthConfig().getUserHeader();
     http.Response res = await http.put(
-      Uri.encodeFull("$_baseUrl/setFirstAccess/$id"),
+      Uri.parse(Uri.encodeFull("$_baseUrl/setFirstAccess/$id")),
       headers: header,
     );
     return res.body;
@@ -68,7 +68,7 @@ class UsersApiController {
     Map<String, String> header = await BasicAuthConfig().getAdminHeader();
 
     http.Response res = await http.post(
-      Uri.encodeFull("$_baseUrl/new"),
+      Uri.parse(Uri.encodeFull("$_baseUrl/new")),
       headers: header,
       body: json.encode({
         "department": newUser.getDepartmentId(),
@@ -92,7 +92,7 @@ class UsersApiController {
     String role = updatedUser.isFireman() ? "FIREMAN" : "CITIZEN";
     Map<String, String> header = await BasicAuthConfig().getUserHeader();
     http.Response res = await http.post(
-      Uri.encodeFull("$_baseUrl/update"),
+      Uri.parse(Uri.encodeFull("$_baseUrl/update")),
       headers: header,
       body: json.encode({
         "id": updatedUser.getId(),
@@ -116,7 +116,7 @@ class UsersApiController {
   Future<String> userExistsByMail(String mail) async {
     Map<String, String> header = await BasicAuthConfig().getAdminHeader();
     http.Response res = await http.get(
-      "$_baseUrl/exists/$mail",
+      Uri.parse("$_baseUrl/exists/$mail"),
       headers: header,
     );
     return res.body;

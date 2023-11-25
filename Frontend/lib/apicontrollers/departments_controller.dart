@@ -4,8 +4,8 @@ import 'dart:async';
 import 'package:ignite/apicontrollers/basic_auth_config.dart';
 
 class DepartmentsApiController {
-  String _ip;
-  String _baseUrl;
+  late String _ip;
+  late String _baseUrl;
 
   DepartmentsApiController(String ip) {
     _ip = ip;
@@ -15,7 +15,8 @@ class DepartmentsApiController {
 //List<Department>
   Future<String> getDepartments() async {
     Map<String, String> header = await BasicAuthConfig().getUserHeader();
-    http.Response res = await http.get("$_baseUrl/all", headers: header);
+    http.Response res =
+        await http.get(Uri.parse("$_baseUrl/all"), headers: header);
     return res.body;
   }
 }
