@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:ignite/design/colors.dart';
 import 'package:theme_provider/theme_provider.dart';
 import 'factories/servicesfactories/firestoreservicesfactory.dart';
 import 'providers/auth_provider.dart';
@@ -36,11 +37,8 @@ class App extends StatelessWidget {
           id: "main",
           description: "Tema principale",
           data: ThemeData(
-            primaryColor: Colors.red[600],
-            accentColor: Colors.grey[200],
-            backgroundColor: Colors.white,
-            bottomAppBarColor: Colors.red[600],
-            buttonColor: Colors.white,
+            useMaterial3: true,
+            colorSchemeSeed: primaryColor,
             fontFamily: 'Nunito',
           ),
           options: CustomOptions(
@@ -52,11 +50,8 @@ class App extends StatelessWidget {
           id: "dark",
           description: "Tema scuro",
           data: ThemeData(
-            primaryColor: Colors.black,
-            accentColor: Colors.grey[700],
-            backgroundColor: Colors.grey[400],
-            bottomAppBarColor: Colors.black,
-            buttonColor: Colors.white,
+            useMaterial3: true,
+            colorSchemeSeed: darkColor,
             fontFamily: 'Nunito',
           ),
           options: CustomOptions(
@@ -89,7 +84,7 @@ class CustomOptions implements AppThemeOptions {
   final String filename;
   final Brightness brightness;
   CustomOptions({
-    @required this.filename,
-    @required this.brightness,
+    required this.filename,
+    required this.brightness,
   });
 }
