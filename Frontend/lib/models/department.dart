@@ -11,15 +11,15 @@ class Department {
     this._street = street;
     this._number = number;
   }
-  String _id;
-  String _cap;
-  String _city;
-  double _lat;
-  double _long;
-  String _mail;
-  String _phoneNumber;
-  String _street;
-  String _number;
+  late String _id;
+  late String _cap;
+  late String _city;
+  late double _lat;
+  late double _long;
+  late String _mail;
+  late String _phoneNumber;
+  late String _street;
+  late String _number;
 
   String getCap() {
     return _cap;

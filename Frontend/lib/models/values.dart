@@ -1,7 +1,8 @@
 class Values {
-  String _name;
-  List<String> _values;
-  String _id;
+  late String _name;
+  late List<String> _values;
+  late String _id;
+
   Values(String id, String name, List<String> values) {
     this._id = id;
     this._name = name;

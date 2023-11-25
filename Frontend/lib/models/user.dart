@@ -43,18 +43,18 @@ class User {
     this._isGoogle = isGoogle;
   }
 
-  String _id;
-  String _mail;
-  UserRole _role;
-  bool _isFirstAccess;
-  String _birthday;
-  String _name;
-  String _surname;
-  String _streetNumber;
-  String _cap;
-  String _departmentId;
-  bool _isFacebook;
-  bool _isGoogle;
+  late String _id;
+  late String _mail;
+  late UserRole _role;
+  late bool _isFirstAccess;
+  late String? _birthday;
+  late String? _name;
+  late String? _surname;
+  late String? _streetNumber;
+  late String? _cap;
+  late String? _departmentId;
+  late bool _isFacebook;
+  late bool _isGoogle;
 
   String getMail() {
     return _mail;
@@ -80,27 +80,27 @@ class User {
     this._isFirstAccess = isFirstAccess;
   }
 
-  String getBirthday() {
+  String? getBirthday() {
     return _birthday;
   }
 
-  String getName() {
+  String? getName() {
     return _name;
   }
 
-  String getSurname() {
+  String? getSurname() {
     return _surname;
   }
 
-  String getStreetNumber() {
+  String? getStreetNumber() {
     return _streetNumber;
   }
 
-  String getCap() {
+  String? getCap() {
     return _cap;
   }
 
-  String getDepartmentId() {
+  String? getDepartmentId() {
     return _departmentId;
   }
 

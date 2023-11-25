@@ -14,7 +14,7 @@ import 'servicesfactory.dart';
 class BackendServicesFactory implements ServicesFactory {
   static final BackendServicesFactory _singleton =
       BackendServicesFactory._internal();
-  String _ip;
+  late String _ip;
   factory BackendServicesFactory(String ip) {
     _singleton._ip = ip;
     return _singleton;

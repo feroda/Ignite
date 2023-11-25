@@ -8,12 +8,12 @@ class Request {
     this._requestedByUserId = requestedByUserId;
     this._open = open;
   }
-  String _id;
-  bool _approved;
-  bool _open;
-  String _approvedByUserId;
-  String _hydrantId;
-  String _requestedByUserId;
+  late String? _id;
+  late bool _approved;
+  late bool _open;
+  late String? _approvedByUserId;
+  late String _hydrantId;
+  late String _requestedByUserId;
 
   Request(
       bool approved, bool open, String hydrantId, String requestedByUserId) {
@@ -28,7 +28,7 @@ class Request {
     return _approved;
   }
 
-  String getApprovedByUserId() {
+  String? getApprovedByUserId() {
     return _approvedByUserId;
   }
 
@@ -44,7 +44,7 @@ class Request {
     return _requestedByUserId;
   }
 
-  String getId() {
+  String? getId() {
     return _id;
   }
 

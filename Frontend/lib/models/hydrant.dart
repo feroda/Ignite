@@ -95,22 +95,22 @@ class Hydrant {
     this._color = color;
   }
 
-  String _id;
-  String _firstAttack;
-  String _secondAttack;
-  String _pressure;
-  String _cap;
-  String _city;
-  double _lat;
-  double _long;
-  String _color;
-  DateTime _lastCheck;
-  String _notes;
-  String _opening;
-  String _street;
-  String _number;
-  String _type;
-  String _vehicle;
+  late String _id;
+  late String _firstAttack;
+  late String _secondAttack;
+  late String _pressure;
+  late String _cap;
+  late String _city;
+  late double _lat;
+  late double _long;
+  late String _color;
+  late DateTime _lastCheck;
+  late String _notes;
+  late String _opening;
+  late String _street;
+  late String _number;
+  late String _type;
+  late String _vehicle;
 
   String getColor() {
     return _color;
