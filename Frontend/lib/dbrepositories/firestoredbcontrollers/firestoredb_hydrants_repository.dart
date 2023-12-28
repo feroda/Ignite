@@ -6,13 +6,13 @@ import '../../models/hydrant.dart';
 class FirestoreDbHydrantsRepository extends FirestoreDbRepository<Hydrant> {
   @override
   Future<void> delete(String id) async {
-    await this.db.collection('hydrants').document(id).delete();
+    await this.db.collection('hydrants').doc(id).delete();
   }
 
   @override
   Future<void> deleteAll() async {
-    this.db.collection('hydrants').getDocuments().then((snapshot) {
-      for (DocumentSnapshot doc in snapshot.documents) {
+    this.db.collection('hydrants').get().then((snapshot) {
+      for (DocumentSnapshot doc in snapshot.docs) {
         doc.reference.delete();
       }
     });
@@ -20,12 +20,11 @@ class FirestoreDbHydrantsRepository extends FirestoreDbRepository<Hydrant> {
 
   @override
   Future<Hydrant> get(String id) async {
-    DocumentSnapshot ds =
-        await this.db.collection('hydrants').document(id).get();
-    if (ds == null) {
+    DocumentSnapshot ds = await this.db.collection('hydrants').doc(id).get();
+    /* if (ds == null) {
       return null;
-    }
-    Map<String, dynamic> data = ds.data;
+    } */
+    Map<String, dynamic> data = ds.data() as Map<String, dynamic>;
     GeoPoint geo = data['geopoint'];
     return new Hydrant(
         id,
@@ -48,11 +47,10 @@ class FirestoreDbHydrantsRepository extends FirestoreDbRepository<Hydrant> {
 
   @override
   Future<List<Hydrant>> getAll() async {
-    QuerySnapshot qsHydrants =
-        await this.db.collection('hydrants').getDocuments();
-    List<Hydrant> hydrants = new List<Hydrant>();
-    for (DocumentSnapshot ds in qsHydrants.documents) {
-      Hydrant h = await this.get(ds.documentID);
+    QuerySnapshot qsHydrants = await this.db.collection('hydrants').get();
+    List<Hydrant> hydrants = new List<Hydrant>.empty();
+    for (DocumentSnapshot ds in qsHydrants.docs) {
+      Hydrant h = await this.get(ds.id);
       hydrants.add(h);
     }
     return hydrants;
@@ -60,9 +58,9 @@ class FirestoreDbHydrantsRepository extends FirestoreDbRepository<Hydrant> {
 
   @override
   Future<Hydrant> insert(Hydrant object) async {
-    if (object == null) {
+    /* if (object == null) {
       return null;
-    }
+    } */
     DocumentReference ref = await this.db.collection('hydrants').add({
       'attack': [object.getFirstAttack(), object.getSecondAttack()],
       'bar': object.getPressure(),
@@ -78,15 +76,15 @@ class FirestoreDbHydrantsRepository extends FirestoreDbRepository<Hydrant> {
       'type': object.getType(),
       'vehicle': object.getVehicle(),
     });
-    return this.get(ref.documentID);
+    return this.get(ref.id);
   }
 
   @override
   Future<Hydrant> update(Hydrant object) async {
-    if (object == null) {
+    /* if (object == null) {
       return null;
-    }
-    await this.db.collection('hydrants').document(object.getId()).updateData({
+    } */
+    await this.db.collection('hydrants').doc(object.getId()).update({
       'attack': [object.getFirstAttack(), object.getSecondAttack()],
       'bar': object.getPressure(),
       'cap': object.getCap(),
@@ -106,8 +104,7 @@ class FirestoreDbHydrantsRepository extends FirestoreDbRepository<Hydrant> {
 
   @override
   Future<bool> exists(String id) async {
-    DocumentSnapshot ds =
-        await this.db.collection('hydrants').document(id).get();
-    return (ds == null) ? false : true;
+    DocumentSnapshot ds = await this.db.collection('hydrants').doc(id).get();
+    return ds.exists;
   }
 }
